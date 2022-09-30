@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import pika
-for i in range(1, 1000):
+for i in range(1, 10000):
   credentials = pika.PlainCredentials('nrv', 'Minotavr6268')
   #parameters = pika.ConnectionParameters('localhost', 5672, 'test_host', credentials)
   #connection = pika.BlockingConnection(parameters)
