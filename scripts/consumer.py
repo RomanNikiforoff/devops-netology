@@ -3,8 +3,8 @@
 
 import pika
 
-credentials = pika.PlainCredentials('nrv', 'Minotavr6268')
-parameters = pika.ConnectionParameters('130.193.50.203', 5672, 'test_host', credentials)
+credentials = pika.PlainCredentials('username', 'userpass')
+parameters = pika.ConnectionParameters('IP', 5672, 'test_host', credentials)
 connection = pika.BlockingConnection(parameters)
 
 channel = connection.channel()
