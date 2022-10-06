@@ -37,6 +37,8 @@ ALTER USER 'sys_test'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 Название таблицы | Название первичного ключа
 customer         | customer_id
 
+[таблица-ответ](https://github.com/RomanNikiforoff/devops-netology/blob/main/homeworks-files/12-2-table.txt)
+
 Дополнительные задания (со звездочкой*)
 Эти задания дополнительные (не обязательные к выполнению) и никак не повлияют на получение вами зачета по этому домашнему заданию. Вы можете их выполнить, если хотите глубже и/или шире разобраться в материале.
 
