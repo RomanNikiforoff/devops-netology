@@ -1,0 +1,17 @@
+Index Name	Column			Table
+PRIMARY		actor_id		actor
+PRIMARY		address_id		address
+PRIMARY		category_id		category
+PRIMARY		city_id			city
+PRIMARY		country_id		country
+PRIMARY		customer_id		customer
+PRIMARY		film_id			film
+PRIMARY		actor_id, film_id	film_actor
+PRIMARY		film_id, category_id	film_category
+PRIMARY		film_id			film_text
+PRIMARY		inventory_id		inventory
+PRIMARY		language_id		language
+PRIMARY		payment_id		payment
+PRIMARY		rental_id		rental
+PRIMARY		staff_id		staff
+PRIMARY		store_id		store
