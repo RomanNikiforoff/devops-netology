@@ -49,4 +49,6 @@ customer         | customer_id
 
 3.2 Выполните запрос на получение списка прав для пользователя sys_temp. (скриншот)
 
+![image](https://github.com/RomanNikiforoff/devops-netology/blob/main/pic/12-2-grants2.png)
+
 Результатом работы должны быть скриншоты обозначенных заданий, а так же "простыня" со всеми запросами.
