@@ -21,8 +21,23 @@ WHERE film.`length` > (SELECT avg(`length`) FROM sakila.film)
 
 # 12-4-3
 
-SELECT SUM(amount) as summa, MONTH(payment_date) as mounth, COUNT(rental_id) as rent_count 
+SELECT SUM(amount) as summa, MONTH(payment_date) as mounth, COUNT(rental_id) as rent_count
 FROM sakila.payment
 GROUP BY MONTH(payment_date)
 ORDER BY summa DESC LIMIT 1
 
+# 12-4-5
+
+SELECT rental.staff_id, count(staff_id),
+CASE
+	WHEN count(staff_id)>8000 THEN 'YES'
+	ELSE 'NO'
+end as 'премия'
+FROM rental
+GROUP BY rental.staff_id
+
+# 12-4-6
+
+SELECT film.film_id, film.title
+FROM film
+WHERE film.film_id NOT IN (SELECT inventory.film_id FROM inventory)
