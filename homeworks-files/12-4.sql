@@ -26,7 +26,7 @@ FROM sakila.payment
 GROUP BY MONTH(payment_date)
 ORDER BY summa DESC LIMIT 1
 
-# 12-4-5
+# 12-4-4*
 
 SELECT rental.staff_id, count(staff_id),
 CASE
@@ -36,7 +36,7 @@ end as 'премия'
 FROM rental
 GROUP BY rental.staff_id
 
-# 12-4-6
+# 12-4-5*
 
 SELECT film.film_id, film.title
 FROM film
