@@ -62,6 +62,10 @@ select * from test_table;
 1) Созданной базы данных;
 2) Результата вывода команды на реплике ```select * from test_table;```.
 
+![image](https://github.com/RomanNikiforoff/devops-netology/blob/main/pic/12-08-cluster.png)
+
+![image](https://github.com/RomanNikiforoff/devops-netology/blob/main/pic/12-08-replica.png)
+
 
 
 ### Задание 2*
