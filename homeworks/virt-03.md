@@ -55,9 +55,10 @@ Hey, Netology
 nrv@test-vm:~/data$ ls
 file-from-host.txt
 nrv@test-vm:~/data$ sudo docker ps
-CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                                               NAMES
-38bb11e183e7   centos/httpd   "/run-httpd.sh"          4 minutes ago    Up 4 minutes    80/tcp, 0.0.0.0:8080->8080/tcp, :::8080->8080/tcp   centos-httpd
-123ebf5bbb05   ubuntu/nginx   "/docker-entrypoint.…"   16 minutes ago   Up 16 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp                   ubuntu-nginx1
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS
+                NAMES
+14fe629f173a   centos/httpd   "/run-httpd.sh"          29 seconds ago   Up 29 seconds   0.0.0.0:5555->80/tcp, :::5555->80/tcp   centos-httpd
+123ebf5bbb05   ubuntu/nginx   "/docker-entrypoint.…"   29 minutes ago   Up 29 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp       ubuntu-nginx1
 nrv@test-vm:~/data$ sudo docker exec -it ubuntu-nginx1 /bin/bash
 root@123ebf5bbb05:/# cd data
 root@123ebf5bbb05:/data# ls
