@@ -1,26 +1,6 @@
 
 # Домашнее задание к занятию "3. Введение. Экосистема. Архитектура. Жизненный цикл Docker контейнера"
 
-## Как сдавать задания
-
-Обязательными к выполнению являются задачи без указания звездочки. Их выполнение необходимо для получения зачета и диплома о профессиональной переподготовке.
-
-Задачи со звездочкой (*) являются дополнительными задачами и/или задачами повышенной сложности. Они не являются обязательными к выполнению, но помогут вам глубже понять тему.
-
-Домашнее задание выполните в файле readme.md в github репозитории. В личном кабинете отправьте на проверку ссылку на .md-файл в вашем репозитории.
-
-Любые вопросы по решению задач задавайте в чате учебной группы.
-
----
-
-
-## Важно!
-
-Перед отправкой работы на проверку удаляйте неиспользуемые ресурсы.
-Это важно для того, чтоб предупредить неконтролируемый расход средств, полученных в результате использования промокода.
-
-Подробные рекомендации [здесь](https://github.com/netology-code/virt-homeworks/blob/virt-11/r/README.md)
-
 ---
 
 ## Задача 1
@@ -71,6 +51,28 @@ Hey, Netology
 - Подключитесь к первому контейнеру с помощью ```docker exec``` и создайте текстовый файл любого содержания в ```/data```;
 - Добавьте еще один файл в папку ```/data``` на хостовой машине;
 - Подключитесь во второй контейнер и отобразите листинг и содержание файлов в ```/data``` контейнера.
+```shell
+nrv@test-vm:~/data$ ls
+file-from-host.txt
+nrv@test-vm:~/data$ sudo docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                                               NAMES
+38bb11e183e7   centos/httpd   "/run-httpd.sh"          4 minutes ago    Up 4 minutes    80/tcp, 0.0.0.0:8080->8080/tcp, :::8080->8080/tcp   centos-httpd
+123ebf5bbb05   ubuntu/nginx   "/docker-entrypoint.…"   16 minutes ago   Up 16 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp                   ubuntu-nginx1
+nrv@test-vm:~/data$ sudo docker exec -it ubuntu-nginx1 /bin/bash
+root@123ebf5bbb05:/# cd data
+root@123ebf5bbb05:/data# ls
+file-from-host.txt
+root@123ebf5bbb05:/data# touch file-from-contaner-ubuntu.txt
+root@123ebf5bbb05:/data# ls
+file-from-contaner-ubuntu.txt  file-from-host.txt
+root@123ebf5bbb05:/data# exit
+exit
+nrv@test-vm:~/data$ sudo docker exec -it centos-httpd /bin/bash
+[root@38bb11e183e7 /]# cd data
+[root@38bb11e183e7 data]# ls
+file-from-contaner-ubuntu.txt  file-from-host.txt
+[root@38bb11e183e7 data]#
+```
 
 ## Задача 4 (*)
 
