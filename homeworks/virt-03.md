@@ -39,13 +39,13 @@ https://hub.docker.com/repository/docker/rnikiforov/rnikiforov/general
 Сценарий:
 
 - Высоконагруженное монолитное java веб-приложение;
-- Nodejs веб-приложение;
-- Мобильное приложение c версиями для Android и iOS;
-- Шина данных на базе Apache Kafka;
-- Elasticsearch кластер для реализации логирования продуктивного веб-приложения - три ноды elasticsearch, два logstash и две ноды kibana;
-- Мониторинг-стек на базе Prometheus и Grafana;
-- MongoDB, как основное хранилище данных для java-приложения;
-- Gitlab сервер для реализации CI/CD процессов и приватный (закрытый) Docker Registry.
+- Nodejs веб-приложение; - *подходит, нода достаточно легковесна и проста*
+- Мобильное приложение c версиями для Android и iOS; - *да, подходит*
+- Шина данных на базе Apache Kafka; - *нет*
+- Elasticsearch кластер для реализации логирования продуктивного веб-приложения - три ноды elasticsearch, два logstash и две ноды kibana; - *возможно с ограничением по использованию памяти в ELK*
+- Мониторинг-стек на базе Prometheus и Grafana; - *да*
+- MongoDB, как основное хранилище данных для java-приложения; - *нет*
+- Gitlab сервер для реализации CI/CD процессов и приватный (закрытый) Docker Registry. -*нет*
 
 ## Задача 3
 
@@ -84,6 +84,30 @@ file-from-contaner-ubuntu.txt  file-from-host.txt
 
 Соберите Docker образ с Ansible, загрузите на Docker Hub и пришлите ссылку вместе с остальными ответами к задачам.
 
+*пришлось внести корректировки в Dockerfile*
+
+```Dockerfile
+# Манифест Docker образа.
+FROM alpine:3.14
+RUN CARGO_NET_GIT_FETCH_WITH_CLI=1 && apk update && \
+apk --no-cache add sudo python3 py3-pip openssl ca-certificates sshpass openssh-client rsync git && \
+apk --no-cache --virtual build-dependencies add python3-dev libffi-dev musl-dev gcc cargo openssl-dev libressl-dev build-base && \
+pip install --upgrade pip wheel && \
+pip install --upgrade cryptography cffi && \
+pip install ansible==2.9.24 && \
+pip install mitogen ansible-lint jmespath --ignore-installed && \
+pip install --upgrade pywinrm --ignore-installed && \
+apk del build-dependencies && \
+rm -rf /var/cache/apk/* && \
+rm -rf /root/.cache/pip && \
+rm -rf /root/.cargo
+RUN  mkdir /ansible && \
+mkdir -p /etc/ansible && \
+echo 'localhost' > /etc/ansible/hosts
+WORKDIR  /ansible
+CMD [ "ansible-playbook", "--version" ]
+```
+https://hub.docker.com/repository/docker/rnikiforov/ansible/general
 
 ---
 
