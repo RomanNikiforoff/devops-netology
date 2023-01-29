@@ -130,9 +130,21 @@ nrv@node01:~$
 4. Подождите 5-10 минут, чтобы система мониторинга успела накопить данные.
 
 Для получения зачета, вам необходимо предоставить: 
+```shell
+nrv@wsl:~$ yc compute instance list
++----------------------+------------+---------------+---------+----------------+----------------+
+|          ID          |    NAME    |    ZONE ID    | STATUS  |  EXTERNAL IP   |  INTERNAL IP   |
++----------------------+------------+---------------+---------+----------------+----------------+
+| epd9l3jlm7pqsvcnv02o | test-vm    | ru-central1-b | STOPPED |                | 10.129.0.30    |
+| fhm5d8gog40lisgl1s9i | toolbox-vm | ru-central1-a | STOPPED |                | 10.128.0.14    |
+| fhmloiunooef05qun9le | node01     | ru-central1-a | RUNNING | 158.160.44.124 | 192.168.101.19 |
++----------------------+------------+---------------+---------+----------------+----------------+
+
+nrv@wsl:~$
+```
 - Скриншот работающего веб-интерфейса Grafana с текущими метриками, как на примере ниже
 <p align="center">
-  <img width="1200" height="600" src="./assets/yc_02.png">
+  <img width="1200" height="600" src="https://github.com/RomanNikiforoff/devops-netology/blob/main/pic/virt-04-grafana.png">
 </p>
 
 ## Задача 5 (*)
