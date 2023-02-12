@@ -1,16 +1,16 @@
 variable "token" {
   description = "Yandex Cloud security OAuth token"
-  default     = "AQAAAAAEVn-NAATuwQWbCukczkWFoKRB1_B38_o"
+  default     = ""
 }
 
 variable "folder_id" {
   description = "Yandex Cloud Folder ID where resources will be created"
-  default     = "b1gkuhr7ssi0qfamt3uq"
+  default     = ""
 }
 
 variable "cloud_id" {
   description = "Yandex Cloud ID where resources will be created"
-  default     = "b1gtkgpga5h0u3ef67er"
+  default     = ""
 }
 
 variable "public_key_path" {
@@ -25,7 +25,7 @@ variable "private_key_path" {
 
 variable "user_password" {
   type = string
-  default     = "Minotavr6268"
+  default     = ""
 }
 
 variable "user" {
