@@ -36,3 +36,4 @@ terraform.rc
 .terraform.lock.hcl
 meta.yml
 /ansible/inventory.ini
+variables.tf
