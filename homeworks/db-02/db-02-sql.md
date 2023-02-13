@@ -11,6 +11,9 @@
 в который будут складываться данные БД и бэкапы.
 
 Приведите получившуюся команду или docker-compose манифест.
+```shell
+sudo docker run -d  --name postgres-latest3 -p 5432:5432    -e POSTGRES_PASSWORD=postgres   -e PGDATA=/var/lib/postgresql/data/pgdata       -v ~/pgdata:/var/lib/postgresql/data -v ~/pgbackup:/var/lib/postgresql/data/bacup       postgres
+```
 
 ## Задача 2
 
@@ -243,6 +246,11 @@ test_db=#
 Восстановите БД test_db в новом контейнере.
 
 Приведите список операций, который вы применяли для бэкапа данных и восстановления. 
+```shell
+root@a850c1d08e6f:/# pg_dump -U postgres test_db >/var/lib/postgresql/data/bacup/test_db.dump
+
+root@386bf3094d20:/# pg_restore -U postgres -d test_db /var/lib/postgresql/data/bacup/test_db.dump
+```
 
 ---
 

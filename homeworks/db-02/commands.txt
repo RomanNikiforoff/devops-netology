@@ -1,3 +1,0 @@
-sudo docker run -d   --name postgres1 -p 5432:5432   -e POSTGRES_PASSWORD=postgres   -e PGDATA=/var/lib/postgresql/data/pgdata       -v ~/pgdata:/var/lib/postgresql/data    postgres
-create table clients (id serial primary key, surname varchar(200), country varchar(200), order_id int, FOREIGN KEY (order_id) REFERENCES orders (id));
-create table orders (id serial primary key, name varchar(200), price int);
