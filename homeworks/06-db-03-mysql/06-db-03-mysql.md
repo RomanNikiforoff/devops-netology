@@ -176,6 +176,10 @@ mysql> SHOW PROFILES;
 
 Приведите в ответе измененный файл `my.cnf`.
 
+Ответ:
+[tuned_my.cnf](https://github.com/RomanNikiforoff/devops-netology/blob/main/homeworks/06-db-03-mysql/tuned_my.cnf)
+
+
 ---
 
 ### Как оформить ДЗ?
