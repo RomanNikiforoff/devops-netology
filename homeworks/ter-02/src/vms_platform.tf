@@ -18,6 +18,7 @@ variable "vm_db_platform_id" {
   description = "platform name"
 }
 
+#
 #variable "vm_db_cores" {
 # default     = 2
 # description = "cores"
