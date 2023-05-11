@@ -26,6 +26,9 @@ nrv@nrv:~/devops-netology/homeworks/08-ansible-02-playbook/playbook$
 9. Подготовьте README.md-файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги.
 10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-02-playbook` на фиксирующий коммит, в ответ предоставьте ссылку на него.
 
+[teg](https://github.com/RomanNikiforoff/devops-netology/releases/tag/08-ansible-02-playbook)
+
+
 ---
 
 ### Как оформить решение задания
