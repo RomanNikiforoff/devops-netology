@@ -1,0 +1,21 @@
+---
+clickhouse:
+  hosts:
+    clickhouse-01:
+      ansible_host: 158.160.56.37
+      ansible_connection: ssh
+      ansible_user: nrv
+
+vector:
+  hosts:
+    vector-01:
+      ansible_host: 158.160.51.122
+      ansible_connection: ssh
+      ansible_user: nrv
+
+lighthouse:
+  hosts:
+    lighthouse-01:
+      ansible_host: 84.252.128.18
+      ansible_connection: ssh
+      ansible_user: nrv
