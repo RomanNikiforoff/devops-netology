@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-2
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+          name: nginx-http
+      initContainers:
+        - name: init-nginx
+          image: busybox
+          command: ['sh', '-c', "until nslookup service-nginx-http.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for nginx; sleep 2; done"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-nginx-http
+spec:
+  selector:
+    app: nginx
+  ports:
+  - name: service-nginx-http
+    protocol: TCP
+    port: 80
+    targetPort: nginx-http
