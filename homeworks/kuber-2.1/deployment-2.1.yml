@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rw-test
+  labels:
+    app: rw-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rw-test
+  template:
+    metadata:
+      labels:
+        app: rw-test
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ['sh', '-c', 'while true; do echo rw-test! >> /output/rw-test.txt; sleep 5; done']
+        volumeMounts:
+        - name: app-volume
+          mountPath: /output
+      - name: multitool
+        image: wbitt/network-multitool
+        volumeMounts:
+        - name: app-volume
+          mountPath: /input
+      volumes:
+      - name: app-volume
+        emptyDir: {}
